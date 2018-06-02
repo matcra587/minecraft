@@ -36,6 +36,6 @@ COPY containerfs /
 
 WORKDIR /opt/minecraft
 
-RUN wget $( python test.py ) -O ${JAR_FILENAME}
+RUN wget $( python minecraftCMD.py ) -O ${JAR_FILENAME}
 
 CMD ["java", "${JAVA_OPTS}", "-myargument=true"]
