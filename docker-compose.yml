@@ -15,6 +15,4 @@ services:
     image: matcra587/minecraft:vanilla
     ports:
       - 25566:25565
-    environment:
-      VERSION: latest
     container_name: vanillamc

@@ -20,12 +20,12 @@ These docker images are all ready to use the latest version of Minecraft (1.12 W
 
 All available tags are always listed [in Docker Hub](https://hub.docker.com/r/matcra587/minecraft/tags):
 
-- `vanilla`: Latest stable build for Minecraft 1.12.2 (Java).
-- `cuberite`: Latest build for Minecraft 1.12.2 (C++)
+- `1.12.2-vanilla`,`vanilla`: Latest stable build for Minecraft 1.12.2 (Java).
+- `1.12.2-cuberite`,`cuberite`: Latest build for Minecraft 1.12.2 (C++)
 
 To use the version 1.12.2 of docker run:
 
-    docker run -d -it -e VERSION=latest -p 25566:25565 sistemics/minecraft:vanilla
+    docker run -d -it -p 25566:25565 sistemics/minecraft:vanilla
     docker run -d -it -p 25565:25565 sistemics/minecraft:cuberite
 
 ## Description
@@ -52,7 +52,5 @@ To use the version 1.12.2 of docker run:
       vanilla:
         image: matcra587/minecraft:vanilla
         ports:
-          - 25566:25565
-        environment:
-          VERSION: latest
+          - 25565:25565
         container_name: vanillamc
