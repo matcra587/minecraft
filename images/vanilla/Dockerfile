@@ -26,6 +26,9 @@ ENV SRV_MINHEAP "1024"
 ENV SRV_CPUCOUNT "1"
 ENV JAR_FILENAME "minecraft_server.jar"
 ENV SRV_OPTIONS "nogui"
+ENV JAVA_OPTS "-Xmx${SRV_MAXHEAP}M -Xms${SRV_MINHEAP}M -XX:+UseConcMarkSweepGC \
+    -XX:+CMSIncrementalPacing -XX:ParallelGCThreads=${SRV_CPUCOUNT} -XX:+AggressiveOpts \
+    -jar ${JAR_FILENAME} ${SRV_OPTIONS}"
 
 RUN mkdir -p /opt/minecraft
 
@@ -35,4 +38,4 @@ WORKDIR /opt/minecraft
 
 RUN wget $( python test.py ) -O ${JAR_FILENAME}
 
-CMD ["./start.sh"]
+CMD ["java", "${JAVA_OPTS}", "-myargument=true"]
