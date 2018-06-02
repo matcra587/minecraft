@@ -11,6 +11,7 @@
 - Vanilla Minecraft (Java)
 - Vanilla Minecraft - Powered by Cuberite (C++)
   - This seems to be better performance wise, but has a lot less plugins available
+- SpigotMC (CraftBukkit)
 
 ## Minecraft 1.12 World of Color Update
 
@@ -22,11 +23,13 @@ All available tags are always listed [in Docker Hub](https://hub.docker.com/r/ma
 
 - `1.12.2-vanilla`,`vanilla`: Latest stable build for Minecraft 1.12.2 (Java).
 - `1.12.2-cuberite`,`cuberite`: Latest build for Minecraft 1.12.2 (C++)
+- `spigotmc`: Latest build for Minecraft 1.12.2. Powered by SpigotMC.
 
 To use the version 1.12.2 of docker run:
 
-    docker run -d -it -p 25566:25565 sistemics/minecraft:vanilla
     docker run -d -it -p 25565:25565 sistemics/minecraft:cuberite
+    docker run -d -it -p 25566:25565 sistemics/minecraft:vanilla
+    docker run -d -it -p 25567:25565 sistemics/minecraft:spigotmc
 
 ## Description
 
@@ -54,3 +57,9 @@ To use the version 1.12.2 of docker run:
         ports:
           - 25565:25565
         container_name: vanillamc
+
+      spigotmc:
+        image: matcra587/minecraft:spigotmc
+        ports:
+          - 25567:25565
+        container_name: spigotmc
