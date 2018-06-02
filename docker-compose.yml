@@ -1,0 +1,20 @@
+---
+version: "3"
+
+services:
+  cuberite:
+    image: matcra587/minecraft:cuberite
+    ports:
+      - 25565:25565
+      - 8080:8080
+    container_name: cubemc
+    tty: true
+    stdin_open: true
+
+  vanilla:
+    image: matcra587/minecraft:vanilla
+    ports:
+      - 25566:25565
+    environment:
+      VERSION: latest
+    container_name: vanillamc
