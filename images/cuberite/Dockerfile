@@ -22,7 +22,7 @@ WORKDIR /opt/minecraft
 
 RUN curl -sSfL https://download.cuberite.org | sh
 
-COPY containerfs /opt/minecraft
+COPY containerfs /
 
 RUN mv /opt/minecraft/Server/* /opt/minecraft/ && \
     rm -rf /opt/minecraft/Server
