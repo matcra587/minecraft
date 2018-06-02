@@ -1,5 +1,11 @@
 # Dockerised Minecraft images
 
+## State
+
+[![Docker Stars](https://img.shields.io/docker/stars/matcra587/minecraft.svg)](https://hub.docker.com/r/matcra587/minecraft)
+[![Docker Pulls](https://img.shields.io/docker/pulls/matcra587/minecraft.svg)](https://hub.docker.com/r/matcra587/minecraft)
+[![Docker Build Status](https://img.shields.io/docker/build/matcra587/minecraft.svg)](https://hub.docker.com/r/matcra587/minecraft/builds)
+
 ## Current supported docker images
 
 - Vanilla Minecraft (Java)
