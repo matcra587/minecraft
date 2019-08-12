@@ -1,22 +1,19 @@
-FROM openjdk:8u151-jre-alpine
+FROM openjdk:12-oraclelinux7
 
 LABEL maintainer="matt@craven.cloud"
 LABEL maintainer_name="Matt Craven"
-LABEL version="0.1"
-LABEL description="A Java based Minecraft Server"
+LABEL version="1.0.0"
+LABEL description="A Java based Minecraft Server running on OL7"
 
-RUN apk upgrade --update && \
-    apk add --update \
-    bash \
-    jq \
-    wget \
-    curl \
-    python \
-    python-dev \
-    py2-pip
+ENV RELEASEVER=7
 
-RUN pip install --upgrade pip && \
-    pip install mcstatus
+RUN yum update --assumeyes && \
+    rpm --import https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-$RELEASEVER https://repo.ius.io/RPM-GPG-KEY-IUS-$RELEASEVER && \
+    yum install --assumeyes https://dl.fedoraproject.org/pub/epel/epel-release-latest-$RELEASEVER.noarch.rpm https://repo.ius.io/ius-release-el$RELEASEVER.rpm && \
+    yum install --assumeyes python36u python36u-devel python36u-debug python36u-libs python36u-pip python36u-setuptools    
+
+RUN pip3.6 install --upgrade pip && \
+    pip3.6 install mcstatus
 
 HEALTHCHECK CMD mcstatus localhost ping
 
