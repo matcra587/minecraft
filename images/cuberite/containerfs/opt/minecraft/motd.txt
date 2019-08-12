@@ -1,4 +1,0 @@
-@6Welcome to a Minecraft Server powered by Cuberite.
-@6Running as a Docker Container!
-@6http://www.cuberite.org/
-@6Type /help for all commands
